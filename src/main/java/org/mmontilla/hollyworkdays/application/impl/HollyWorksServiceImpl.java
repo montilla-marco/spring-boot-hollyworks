@@ -32,7 +32,7 @@ public class HollyWorksServiceImpl implements HollyWorksService {
         int workDaysOnHollyDay = calculateWorkDaysOnHollyDay(hollyDays);
         int worDaysNumber = calculateWorkDays(workDaysOnHollyDay, dateRepository.getWorkDays(yearOf).size());
         return Arrays.asList(InformationMessages.HOLLY_DAY_RESULT_MESSAGE.message + workDaysOnHollyDay,
-                    InformationMessages.WORK_DAY_RESULT_MESSAGE.message + worDaysNumber);
+                InformationMessages.WORK_DAY_RESULT_MESSAGE.message + worDaysNumber);
     }
 
     private boolean validateYear(int yearOf) {

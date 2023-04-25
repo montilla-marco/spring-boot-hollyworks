@@ -49,7 +49,7 @@ class ControllerTest {
     @Test
     void give_YearOfAndNumberOf_whenFindAll_thenReturnHollyWorksDaysNotEmptyList() {
         //arrange
-        List<String> mockList = Arrays.asList("");
+        List<String> mockList = List.of("");
         Mockito.when(service.getHollyWorks(DEFAULT_YEAR, DEFAULT_HOLLY_DAYS_NUMBER)).thenReturn(mockList);
         //act
         List<String> result = controller.findAll(DEFAULT_YEAR, DEFAULT_HOLLY_DAYS_NUMBER);

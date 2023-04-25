@@ -58,7 +58,7 @@ class DateRepositoryImplTest {
     void givenYearOf_whenGetWorkDays_thenReturnListOfWorksDays() {
         //arrange
         LocalDate date = LocalDate.of(DEFAULT_YEAR, DEFAULT_MONTH, MY_DAY);
-        List<LocalDate> worksDays = Arrays.asList(date);
+        List<LocalDate> worksDays = List.of(date);
         when(workDaysGenerator.getDate(DEFAULT_YEAR)).thenReturn(worksDays);
         //act
         List<LocalDate> workDays = repository.getWorkDays(DEFAULT_YEAR);
@@ -91,7 +91,7 @@ class DateRepositoryImplTest {
         //act
         List<LocalDate> hollyDays = repository.getHollyDays(DEFAULT_YEAR, ONE_HOLLY_DAY);
         //assert
-        assertThat(hollyDays.size()).isEqualTo( ONE_HOLLY_DAY);
+        assertThat(hollyDays.size()).isEqualTo(ONE_HOLLY_DAY);
         assertThat(hollyDays.get(0)).isNotNull();
         assertThat(hollyDays.get(0)).isEqualTo(hollyDay);
     }

@@ -29,6 +29,7 @@ public class ControllerApiTest {
     public static final String WORKDAYS_MESSAGE = "Dias Laborales = 256";
 
     public static final String CONTEXT_PATH = "/api/v1/hollyworks";
+
     @Test
     void givenNoQueryParams_whenFindAll_thenReturnBadRequest() throws Exception {
         // act and assert

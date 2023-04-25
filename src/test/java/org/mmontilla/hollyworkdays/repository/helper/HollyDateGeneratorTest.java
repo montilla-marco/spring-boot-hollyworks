@@ -15,11 +15,12 @@ class HollyDateGeneratorTest {
     public static final int D = 1999;
 
     public static final int THIRTY_FIRST_CENTURY_MIN_YEAR = 3001;
+
     @Test
     void givenARange_whenGetDate_thenReturnDataInRange() {
         //arrange
-        LocalDate start = LocalDate.of(DEFAULT_YEAR, Ranges.FIRST_MONTH_OF_RANGE.day,Ranges.FIRST_DAY_OF_RANGE.day);
-        LocalDate end = LocalDate.of(DEFAULT_YEAR, Ranges.LAST_MONTH_OF_RANGE.day,Ranges.LAST_DAY_OF_RANGE.day);
+        LocalDate start = LocalDate.of(DEFAULT_YEAR, Ranges.FIRST_MONTH_OF_RANGE.day, Ranges.FIRST_DAY_OF_RANGE.day);
+        LocalDate end = LocalDate.of(DEFAULT_YEAR, Ranges.LAST_MONTH_OF_RANGE.day, Ranges.LAST_DAY_OF_RANGE.day);
         //act
         LocalDate random = new HollyDateGenerator().getDate(DEFAULT_YEAR);
         //assert
@@ -29,8 +30,8 @@ class HollyDateGeneratorTest {
     @Test
     void givenALoopOfDateRequest_whenGetDate_thenReturnAllDataInRange() {
         //arrange
-        LocalDate start = LocalDate.of(DEFAULT_YEAR, Ranges.FIRST_MONTH_OF_RANGE.day,Ranges.FIRST_DAY_OF_RANGE.day);
-        LocalDate end = LocalDate.of(DEFAULT_YEAR, Ranges.LAST_MONTH_OF_RANGE.day,Ranges.LAST_DAY_OF_RANGE.day);
+        LocalDate start = LocalDate.of(DEFAULT_YEAR, Ranges.FIRST_MONTH_OF_RANGE.day, Ranges.FIRST_DAY_OF_RANGE.day);
+        LocalDate end = LocalDate.of(DEFAULT_YEAR, Ranges.LAST_MONTH_OF_RANGE.day, Ranges.LAST_DAY_OF_RANGE.day);
         HollyDateGenerator hollyDateGenerator = new HollyDateGenerator();
         //act & assert
         IntStream.range(0, 200)

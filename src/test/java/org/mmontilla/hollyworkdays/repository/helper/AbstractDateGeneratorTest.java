@@ -43,6 +43,7 @@ class AbstractDateGeneratorTest {
         public Sut() {
             super();
         }
+
         @Override
         public T getDate(int year) {
             return null;

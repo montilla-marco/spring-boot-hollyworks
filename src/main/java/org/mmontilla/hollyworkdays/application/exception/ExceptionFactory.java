@@ -1,7 +1,7 @@
 package org.mmontilla.hollyworkdays.application.exception;
 
-import org.mmontilla.hollyworkdays.application.exception.ApplicationException;
 import org.mmontilla.hollyworkdays.application.utils.ApplicationTierConfiguration.ErrorMessages;
+
 public class ExceptionFactory {
 
     public enum Exceptions {

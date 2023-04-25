@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.ResponseEntity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -41,7 +42,8 @@ class ControllerTest {
     @Test
     void give_YearOfAndNumberOf_whenFindAll_thenReturnHollyWorksDaysList() {
         //act
-        List<String> result = controller.findAll(DEFAULT_YEAR, DEFAULT_HOLLY_DAYS_NUMBER);
+        ResponseEntity<List<String>> responseEntity = controller.findAll(DEFAULT_YEAR, DEFAULT_HOLLY_DAYS_NUMBER);
+        List<String> result = responseEntity.getBody();
         //assert
         assertThat(result).isNotNull();
     }
@@ -52,7 +54,8 @@ class ControllerTest {
         List<String> mockList = List.of("");
         Mockito.when(service.getHollyWorks(DEFAULT_YEAR, DEFAULT_HOLLY_DAYS_NUMBER)).thenReturn(mockList);
         //act
-        List<String> result = controller.findAll(DEFAULT_YEAR, DEFAULT_HOLLY_DAYS_NUMBER);
+        ResponseEntity<List<String>> responseEntity = controller.findAll(DEFAULT_YEAR, DEFAULT_HOLLY_DAYS_NUMBER);
+        List<String> result = responseEntity.getBody();
         //assert
         assertThat(result).isNotNull();
         assertThat(result.get(0)).isNotNull();
@@ -64,7 +67,8 @@ class ControllerTest {
         List<String> mockList = Arrays.asList(HOLLY_DAYS_WEEK_NUMBER_MESSAGE, WORKDAYS_MESSAGE);
         Mockito.when(service.getHollyWorks(DEFAULT_YEAR, DEFAULT_HOLLY_DAYS_NUMBER)).thenReturn(mockList);
         //act
-        List<String> result = controller.findAll(DEFAULT_YEAR, DEFAULT_HOLLY_DAYS_NUMBER);
+        ResponseEntity<List<String>> responseEntity = controller.findAll(DEFAULT_YEAR, DEFAULT_HOLLY_DAYS_NUMBER);
+        List<String> result = responseEntity.getBody();
         //assert
         assertThat(result).isNotNull();
         assertThat(result.get(0)).isEqualTo(HOLLY_DAYS_WEEK_NUMBER_MESSAGE);
@@ -77,7 +81,8 @@ class ControllerTest {
         List<String> mockList = Arrays.asList(TEST_HOLLY_DAYS_WEEK_NUMBER_MESSAGE, TEST_WORKDAYS_MESSAGE);
         Mockito.when(service.getHollyWorks(TEST_YEAR, TEST_HOLLY_DAYS_NUMBER)).thenReturn(mockList);
         //act
-        List<String> result = controller.findAll(TEST_YEAR, TEST_HOLLY_DAYS_NUMBER);
+        ResponseEntity<List<String>> responseEntity = controller.findAll(TEST_YEAR, TEST_HOLLY_DAYS_NUMBER);
+        List<String> result = responseEntity.getBody();
         //assert
         assertThat(result).isNotNull();
         assertThat(result.get(0)).isEqualTo(TEST_HOLLY_DAYS_WEEK_NUMBER_MESSAGE);

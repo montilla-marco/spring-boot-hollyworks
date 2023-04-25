@@ -53,7 +53,11 @@ try on: https://editor-next.swagger.io/
 ```
 ./gradlew bootRun
 ```
+#### Llamar al API
 
+```
+curl -X GET "localhost:9000/api/v1/hollyworks?yearOf=2023&numberOf=5" -H 'Content-type:application/json'
+```
 ### Postman
 ```
 curl --location --request GET 'http://localhost:9000/api/v1/hollyworks?yearOf=2023&numberOf=15' \

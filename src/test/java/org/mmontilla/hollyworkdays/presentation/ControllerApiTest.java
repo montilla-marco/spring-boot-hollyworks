@@ -64,4 +64,3 @@ public class ControllerApiTest {
                 .andExpect(content().string(Matchers.containsString(WORKDAYS_MESSAGE)));
     }
 }
-

@@ -6,8 +6,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import javax.validation.ConstraintViolationException;
 import java.time.LocalDate;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -57,5 +59,11 @@ public class ExceptionAdvisor extends ResponseEntityExceptionHandler {
         error.put(ResponseFields.MESSAGE.field, ex.getMessage());
         return new ResponseEntity<Map<String, Object>>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-}
 
+    @ExceptionHandler(value = {ConstraintViolationException.class})
+    protected ResponseEntity<Object> handleConstraintViolation(ConstraintViolationException ex, WebRequest request) {
+        Map<String, Object> error = getExceptionResponse(HttpStatus.BAD_REQUEST);
+        error.put(ResponseFields.MESSAGE.field, ex.getMessage());
+        return new ResponseEntity(error, HttpStatus.BAD_REQUEST);
+    }
+}
